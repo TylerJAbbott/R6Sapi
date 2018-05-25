@@ -67,10 +67,10 @@ def run():
 
         lister.pop()
         listing.pop()
-        print(len(lister))
 
-        lister = [int(i) for i in lister]
         listing = [int(i) for i in listing]
+        lister = [int(i) for i in lister]
+
         print(lister)
         print(listing)
         
@@ -126,6 +126,26 @@ def run():
         indexLoss = arrayOfLosses.index(bestLoser)
         print(indexLoss)
 
+        arrayOfKDs = []
+        counter3 = 0
+        for i in usernames:
+            if sorted[counter3][1] == 0:
+                sorted[counter3][1] = 1
+            arrayOfKDs.append(sorted[counter3][0]/sorted[counter3][1])
+            counter3 += 1
+        file = open("printer.txt","w")
+        ranger = len(arrayOfKDs)
+        ranger = ranger - 1
+        for x in range(ranger):
+            comma = ", "
+            equals = "="
+            needWrite = (str(usernames[x]) + equals)
+            needToWrite = (str(arrayOfKDs[x]) + comma)
+            file.write(needWrite)
+            file.write(needToWrite)
+        file.close()
+
+        print(arrayOfKDs)
         print(usernames[indexBestKiller] + " is the best killer!")
         print(usernames[indexDeath] + " dies a whole lot.")
         print(usernames[indexWin] + " has won the most games.")
