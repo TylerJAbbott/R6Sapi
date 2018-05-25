@@ -135,7 +135,7 @@ def run():
             counter3 += 1
         file = open("printer.txt","w")
         ranger = len(arrayOfKDs)
-        ranger = ranger - 1
+        ranger = ranger
         for x in range(ranger):
             comma = ", "
             equals = "="
