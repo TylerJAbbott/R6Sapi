@@ -73,7 +73,7 @@ def run():
 
         print(lister)
         print(listing)
-        
+       
         compared = []
 
         count = 0
@@ -86,7 +86,6 @@ def run():
         sorted = list(chunks(compared, 4))
 
         print(sorted)
-        
 
         arrayOfKills = []
         counter = 0
@@ -111,7 +110,9 @@ def run():
         arrayOfWins = []
         counter1 = 0
         for i in sorted:
-            arrayOfWins.append(sorted[counter1][2])
+            if sorted[counter1][3] == 0:
+                sorted[counter1][3] = 1
+            arrayOfWins.append(sorted[counter1][2]/sorted[counter1][3])
             counter1 += 1
         bestWinner = max(arrayOfWins)
         indexWin = arrayOfWins.index(bestWinner)
@@ -133,15 +134,28 @@ def run():
                 sorted[counter3][1] = 1
             arrayOfKDs.append(sorted[counter3][0]/sorted[counter3][1])
             counter3 += 1
+        arrayOfKillRate = []
+        counter4 = 0
+        for i in usernames:
+            temp = sorted[counter4][2]+sorted[counter4][3]
+            if temp == 0:
+                temp = 1
+            arrayOfKillRate.append(sorted[counter4][0]/temp)
         file = open("printer.txt","w")
         ranger = len(arrayOfKDs)
+
         ranger = ranger
         for x in range(ranger):
-            comma = ", "
-            equals = "="
-            needWrite = (str(usernames[x]) + equals)
+            comma = ","
+            needWrite = (str(usernames[x]) + comma)
+            needing = (str(arrayOfKills[x]) + comma)
+            needer = (str(arrayOfWins[x]) + comma)
+            needs = (str(arrayOfKillRate[x]) + comma)
             needToWrite = (str(arrayOfKDs[x]) + comma)
             file.write(needWrite)
+            file.write(needing)
+            file.write(needer)
+            file.write(needs)
             file.write(needToWrite)
         file.close()
 
