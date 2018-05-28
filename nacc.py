@@ -3,7 +3,8 @@ import asyncio
 import getpass
 import r6sapi as api
 
-
+usernamerr = 0
+pasword = 0
 assassin1901 = "assassin1901"
 Pesto1911 = "Pesto1911"
 billy_yoyo = "billy_yoyo"
@@ -11,8 +12,8 @@ fruity_kiwi = "fruity_kiwi"
 captain_anime69 = "captain_anime69"
 
 
-email = input("UPLAY E-mail: ")
-password = getpass.getpass("Account password: ")
+email = usernamerr
+password = pasword
 usernames = [Pesto1911, assassin1901, billy_yoyo, fruity_kiwi, captain_anime69]
 
 def chunks(l, n):
@@ -140,7 +141,7 @@ def run():
             temp = sorted[counter4][2]+sorted[counter4][3]
             if temp == 0:
                 temp = 1
-            arrayOfKillRate.append(sorted[counter4][0]/temp)
+            arrayOfKillRate.append(sorted[counter4][0]/temp);
         file = open("printer.txt","w")
         ranger = len(arrayOfKDs)
 
