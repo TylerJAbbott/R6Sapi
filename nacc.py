@@ -138,6 +138,7 @@ def run():
         arrayOfKillRate = []
         counter4 = 0
         for i in usernames:
+            counter += 1
             temp = sorted[counter4][2]+sorted[counter4][3]
             if temp == 0:
                 temp = 1
